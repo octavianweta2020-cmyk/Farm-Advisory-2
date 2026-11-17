@@ -1,31 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kenya Agro-Advisory</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#285b3f">
+  <title>Farm Advisory</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header><h1>Kenya Agro-Advisory</h1><nav id="nav"></nav></header>
+  <header class="site-header">
+    <a class="brand" href="/">Farm Advisory</a>
+    <nav id="navigation" aria-label="Account"></nav>
+  </header>
+
   <main>
-    <section class="hero">
-      <h2>Farming advice you can trace</h2>
-      <p>Choose your crop, county, zone, soil and farming stage. The system checks reviewed rules, and an extension officer approves advice before you see it. If it is not sure, it explains why instead of guessing.</p>
-      <p><a class="btn" href="/signup.html">Create an account</a> <a class="btn alt" href="/login.html">Log in</a></p>
+    <section id="welcome" class="welcome">
+      <p class="eyebrow">A simple farm support tool</p>
+      <h1>Ask for advice. Get it reviewed.</h1>
+      <p>Farmers can send a short request. An extension officer reviews it before advice is shared.</p>
+      <p class="notice">This is a demo. Only an extension officer should provide farm advice.</p>
     </section>
-    <section>
-      <h2>How it works</h2>
-      <ol>
-        <li>Sign up and give your consent.</li>
-        <li>Submit your farm details.</li>
-        <li>An extension officer reviews the draft advice.</li>
-        <li>Approved advice appears on your dashboard.</li>
-      </ol>
-      <p class="note">Prototype: all advice text is a placeholder, not real farming advice.</p>
+
+    <section id="account" class="panel">
+      <div class="tabs" role="tablist" aria-label="Account options">
+        <button id="loginTab" class="tab active" type="button" role="tab" aria-selected="true">Log in</button>
+        <button id="signupTab" class="tab" type="button" role="tab" aria-selected="false">Create account</button>
+      </div>
+      <form id="accountForm">
+        <label id="nameField" hidden>
+          Your name
+          <input name="name" autocomplete="name" maxlength="60">
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" autocomplete="email" required maxlength="120">
+        </label>
+        <label>
+          Password
+          <input name="password" type="password" autocomplete="current-password" required minlength="8" maxlength="100">
+        </label>
+        <label id="consentField" class="check-label" hidden>
+          <input name="consent" type="checkbox">
+          I agree to share my farm request with an extension officer.
+        </label>
+        <button id="accountSubmit" class="button" type="submit">Log in</button>
+      </form>
+      <p id="accountMessage" class="message" role="alert"></p>
+    </section>
+
+    <section id="dashboard" hidden>
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow">Your workspace</p>
+          <h1 id="dashboardTitle"></h1>
+        </div>
+        <p id="accountEmail" class="muted"></p>
+      </div>
+
+      <section id="farmerPanel" class="panel" hidden>
+        <h2>Request advice</h2>
+        <p class="muted">Choose your farm details. A request is only sent when a demo rule covers it.</p>
+        <form id="requestForm">
+          <label>
+            Crop
+            <select name="crop" required></select>
+          </label>
+          <label>
+            County
+            <select name="county" required></select>
+          </label>
+          <label>
+            Farming stage
+            <select name="stage" required></select>
+          </label>
+          <button class="button" type="submit">Send request</button>
+        </form>
+        <p id="requestMessage" class="message" role="status"></p>
+        <h2 class="section-title">My requests</h2>
+        <div id="farmerRequests" class="request-list"></div>
+      </section>
+
+      <section id="officerPanel" class="panel" hidden>
+        <h2>Requests to review</h2>
+        <p class="muted">Write advice based on your professional knowledge before approving a request.</p>
+        <div id="officerRequests" class="request-list"></div>
+      </section>
     </section>
   </main>
-  <script src="common.js"></script>
-  <script>setupNav();</script>
+
+  <footer>
+    <p>Demo app only. It does not provide verified agricultural advice.</p>
+  </footer>
+  <script src="/app.js" defer></script>
 </body>
 </html>
