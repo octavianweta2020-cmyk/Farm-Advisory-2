@@ -1,0 +1,8 @@
+{
+  "name": "kenya-agro-advisory",
+  "version": "1.0.0",
+  "description": "Rule-based farming advisory prototype with login, signup and officer review",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}

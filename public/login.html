@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in - Kenya Agro-Advisory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>Kenya Agro-Advisory</h1><nav id="nav"></nav></header>
+  <main class="auth">
+    <h2>Log in</h2>
+    <form id="authForm" data-action="/api/login">
+      
+      <label>Email <input type="email" name="email" required autocomplete="email"></label>
+      <label>Password <input type="password" name="password" required minlength="8" autocomplete="current-password"></label>
+      <button type="submit" class="primary">Log in</button>
+    </form>
+    <p id="msg" class="error" role="alert"></p>
+    <p>No account? <a href="/signup.html">Sign up</a></p>
+  </main>
+  <script src="common.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>
